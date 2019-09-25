@@ -1,0 +1,80 @@
+{
+  "name": "@preact-hooks/unistore",
+  "version": "1.0.0",
+  "description": "A custom Preact hook to wire up components to Unistore.",
+  "main": "dist/unistore.js",
+  "module": "dist/unistore.mjs",
+  "browser": "dist/unistore.umd.js",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "author": "Rahim Alwer <rahim_alwer@hotmail.com>",
+  "engines": {
+    "node": ">= 8"
+  },
+  "homepage": "https://github.com/mihar-22/preact-hooks-unistore#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mihar-22/preact-hooks-unistore"
+  },
+  "bugs": {
+    "url": "https://github.com/mihar-22/preact-hooks-unistore/issues"
+  },
+  "keywords": [
+    "unistore",
+    "store",
+    "preact-hooks",
+    "preact",
+    "hooks"
+  ],
+  "files": [
+    "dist",
+    "types/index.d.ts"
+  ],
+  "scripts": {
+    "toc": "doctoc README.md",
+    "lint": "standard --parser babel-eslint --fix --env jest",
+    "clean": "rimraf dist",
+    "build": "microbundle src/index.js src/shallowEqual.js --sourcemap false --compress",
+    "test": "jest src/__tests__",
+    "test:watch": "yarn test --watch",
+    "test:update": "yarn test --updateSnapshot --coverage",
+    "setup": "yarn && yarn validate",
+    "validate": "yarn lint && yarn test && yarn clean && yarn build",
+    "release": "yarn validate && standard-version"
+  },
+  "peerDependencies": {
+    "preact": ">=10 || ^10.0.0-alpha.0 || ^10.0.0-beta.0",
+    "unistore": "^3.4.1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.6.2",
+    "@testing-library/jest-dom": "^4.1.0",
+    "@types/jest": "^24.0.18",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "doctoc": "^1.4.0",
+    "jest": "^24.9.0",
+    "microbundle": "^0.11.0",
+    "preact": "^10.0.0-rc.3",
+    "preact-testing-library-next": "^1.1.7",
+    "rimraf": "^3.0.0",
+    "standard": "^14.3.1",
+    "standard-version": "^7.0.0",
+    "unistore": "^3.4.1"
+  },
+  "mangle": {
+    "regex": "^_"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^react$": "preact/compat",
+      "^react-dom$": "preact/compat"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
