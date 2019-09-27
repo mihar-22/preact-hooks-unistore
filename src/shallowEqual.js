@@ -1,4 +1,4 @@
-export default function shallowEqual (objA, objB) {
+export default (objA, objB) => {
   const keysA = Object.keys(objA)
   const keysB = Object.keys(objB)
 

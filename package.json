@@ -34,7 +34,7 @@
     "toc": "doctoc README.md",
     "lint": "standard --parser babel-eslint --fix --env jest",
     "clean": "rimraf dist",
-    "build": "microbundle src/index.js src/shallowEqual.js --sourcemap false --compress",
+    "build": "microbundle src/index.js src/shallowEqual.js --name unistore --sourcemap false --compress",
     "test": "jest src/__tests__",
     "test:watch": "yarn test --watch",
     "test:update": "yarn test --updateSnapshot --coverage",

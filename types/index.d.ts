@@ -8,33 +8,23 @@ import {
   Store
 } from 'unistore'
 
-import {ComponentChildren, FunctionComponent} from "preact";
+import {Context, Provider} from "preact";
 
-interface Consumer<T> extends FunctionComponent<{
-  children: (value: T) => ComponentChildren
-}> {}
+export = unistore;
+export as namespace unistore;
 
-interface Provider<T> extends FunctionComponent<{
-  value: T,
-  children: ComponentChildren
-}> {}
+declare namespace unistore {
+  interface StoreContext<K> extends Context<Store<K>> {}
 
-interface Context<T> {
-  Consumer: Consumer<T>;
-  Provider: Provider<T>;
+  interface StoreProvider<K> extends Provider<Store<K>> {}
+
+  function useSelector<TState, TSelected>(
+    selector: (state: TState) => TSelected,
+    equalityFn?: (left: TSelected, right: TSelected) => boolean
+  ): TSelected;
+
+  function useAction<K>(action: Action<K>): BoundAction
+
+  function useStore<K>(): Store<K>;
 }
 
-export interface StoreContext<K> extends Context<Store<K>> {}
-
-export interface StoreProvider<K> extends Provider<Store<K>> {}
-
-export function shallowEqual(left: any, right: any): boolean;
-
-export function useSelector<TState, TSelected>(
-  selector: (state: TState) => TSelected,
-  equalityFn?: (left: TSelected, right: TSelected) => boolean
-): TSelected;
-
-export function useAction<K>(action: Action<K>): BoundAction
-
-export function useStore<K>(): Store<K>;
