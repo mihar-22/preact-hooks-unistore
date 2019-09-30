@@ -6,7 +6,7 @@
  */
 
 import { h } from 'preact'
-import * as ptl from 'preact-testing-library-next'
+import * as ptl from '@testing-library/preact'
 import '@testing-library/jest-dom/extend-expect'
 
 import { StoreProvider, useSelector } from '..'
