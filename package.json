@@ -68,12 +68,6 @@
   "mangle": {
     "regex": "^_"
   },
-  "jest": {
-    "moduleNameMapper": {
-      "^react$": "preact/compat",
-      "^react-dom$": "preact/compat"
-    }
-  },
   "publishConfig": {
     "access": "public"
   }
