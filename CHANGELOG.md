@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/mihar-22/preact-hooks-unistore/compare/v1.0.5...v1.0.6) (2019-10-02)
+
+
+### Bug Fixes
+
+* typo in bundle names ([76b2ae8](https://github.com/mihar-22/preact-hooks-unistore/commit/76b2ae8))
+
 ### [1.0.5](https://github.com/mihar-22/preact-hooks-unistore/compare/v1.0.4...v1.0.5) (2019-10-02)
 
 
