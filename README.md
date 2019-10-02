@@ -31,7 +31,7 @@ A custom Preact hook to wire up components to [Unistore](https://github.com/deve
 
 ***This package has [Preact 10+](https://github.com/preactjs/preact) and [Unistore 3.4+](https://github.com/developit/unistore) as peer dependencies.***
 
-`npm install @preact-hooks/unistore --save-dev` or `yarn add @preact-hooks/unistore -D`
+`npm install @preact-hooks/unistore` or `yarn add @preact-hooks/unistore`
 
 You can also load it via the [unpkg](https://unpkg.com) CDN
 
