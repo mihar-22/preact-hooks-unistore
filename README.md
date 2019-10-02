@@ -33,6 +33,12 @@ A custom Preact hook to wire up components to [Unistore](https://github.com/deve
 
 `npm install @preact-hooks/unistore --save-dev` or `yarn add @preact-hooks/unistore -D`
 
+You can also load it via the [unpkg](https://unpkg.com) CDN
+
+`https://unpkg.com/@preact-hooks/unistore` will download the latest UMD bundle.
+
+All formats (UMD, CJS and ESM) are available in the dist folder inside the package.
+
 ## Docs
 
 ### Setup 
