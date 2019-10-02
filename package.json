@@ -2,8 +2,8 @@
   "name": "@preact-hooks/unistore",
   "version": "1.0.7",
   "description": "A custom Preact hook to wire up components to Unistore.",
-  "main": "dist/hooks.js",
-  "module": "dist/hooks.esm.js",
+  "main": "dist/hooks.umd.js",
+  "module": "dist/hooks.modern.js",
   "unpkg": "dist/hooks.umd.js",
   "types": "types/index.d.ts",
   "license": "MIT",
@@ -39,7 +39,7 @@
     "toc": "doctoc README.md",
     "lint": "standard --parser babel-eslint --fix --env jest",
     "clean": "rimraf dist",
-    "build": "microbundle src/index.js src/shallowEqual.js --name unistoreHooks --sourcemap false --compress --globals preact/hooks=preactHooks",
+    "build": "microbundle src/index.js src/shallowEqual.js --name unistoreHooks --sourcemap false --compress --globals preact/hooks=preactHooks -f modern,umd",
     "test": "jest src/__tests__",
     "test:watch": "yarn test --watch",
     "test:update": "yarn test --updateSnapshot --coverage",
@@ -63,15 +63,12 @@
     "babel-jest": "^24.9.0",
     "doctoc": "^1.4.0",
     "jest": "^24.9.0",
-    "microbundle": "^0.11.0",
+    "microbundle": "^0.12.0-next.6",
     "preact": "^10.0.0-rc.3",
     "rimraf": "^3.0.0",
     "standard": "^14.3.1",
     "standard-version": "^7.0.0",
     "unistore": "^3.4.1"
-  },
-  "mangle": {
-    "regex": "^_"
   },
   "publishConfig": {
     "access": "public"
