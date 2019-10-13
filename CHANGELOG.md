@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/mihar-22/preact-hooks-unistore/compare/v1.0.8...v1.0.9) (2019-10-13)
+
+
+### Bug Fixes
+
+* **types:** export context and provider as values instead of type ([338dc13](https://github.com/mihar-22/preact-hooks-unistore/commit/338dc13)), closes [#1](https://github.com/mihar-22/preact-hooks-unistore/issues/1)
+* **types:** incorrect namespace ([1e034c1](https://github.com/mihar-22/preact-hooks-unistore/commit/1e034c1))
+
 ### [1.0.8](https://github.com/mihar-22/preact-hooks-unistore/compare/v1.0.7...v1.0.8) (2019-10-02)
 
 

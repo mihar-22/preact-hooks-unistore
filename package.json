@@ -1,6 +1,6 @@
 {
   "name": "@preact-hooks/unistore",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A custom Preact hook to wire up components to Unistore.",
   "main": "dist/hooks.umd.js",
   "module": "dist/hooks.modern.js",
