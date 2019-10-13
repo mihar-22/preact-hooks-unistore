@@ -10,14 +10,14 @@ import {
 
 import { Context, Provider } from "preact";
 
-export = unistore;
-export as namespace unistore;
+export = unistoreHooks;
+export as namespace unistoreHooks;
 
 interface StoreContext<K> extends Context<null | Store<K>> {}
 
 interface StoreProvider<K> extends Provider<Store<K>> {}
 
-declare namespace unistore {
+declare namespace unistoreHooks {
   const StoreContext: StoreContext<any>
 
   const StoreProvider: StoreProvider<any>
