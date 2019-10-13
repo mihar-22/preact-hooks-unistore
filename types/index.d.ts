@@ -8,15 +8,19 @@ import {
   Store
 } from 'unistore'
 
-import {Context, Provider} from "preact";
+import { Context, Provider } from "preact";
 
 export = unistore;
 export as namespace unistore;
 
-declare namespace unistore {
-  interface StoreContext<K> extends Context<Store<K>> {}
+interface StoreContext<K> extends Context<null | Store<K>> {}
 
-  interface StoreProvider<K> extends Provider<Store<K>> {}
+interface StoreProvider<K> extends Provider<Store<K>> {}
+
+declare namespace unistore {
+  const StoreContext: StoreContext<any>
+
+  const StoreProvider: StoreProvider<any>
 
   function useSelector<TState, TSelected>(
     selector: (state: TState) => TSelected,
