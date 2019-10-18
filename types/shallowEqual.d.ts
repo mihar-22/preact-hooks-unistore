@@ -4,5 +4,5 @@
 
 declare function shallowEqual(left: any, right: any): boolean;
 
-export as namespace unistore;
+export as namespace shallowEqual;
 export default shallowEqual;

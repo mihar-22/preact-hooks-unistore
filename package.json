@@ -33,18 +33,20 @@
   ],
   "files": [
     "dist",
-    "types/index.d.ts"
+    "types"
   ],
   "scripts": {
     "toc": "doctoc README.md",
     "lint": "standard --parser babel-eslint --fix --env jest",
     "clean": "rimraf dist",
-    "build": "microbundle src/index.js src/shallowEqual.js --name unistoreHooks --sourcemap false --compress --globals preact/hooks=preactHooks -f modern,umd",
+    "build:shallowEqual": "microbundle src/shallowEqual.js -o dist/shallowEqual.js --name shallowEqual --sourcemap false -f modern,umd",
+    "build:core": "microbundle src/index.js --name unistoreHooks --sourcemap false --compress --globals preact/hooks=preactHooks -f modern,umd",
+    "build": "yarn clean && yarn build:core  && yarn build:shallowEqual",
     "test": "jest src/__tests__",
     "test:watch": "yarn test --watch",
     "test:update": "yarn test --updateSnapshot --coverage",
     "setup": "yarn && yarn validate",
-    "validate": "yarn lint && yarn test && yarn clean && yarn build",
+    "validate": "yarn lint && yarn test && yarn build",
     "release": "yarn validate && standard-version"
   },
   "peerDependencies": {
