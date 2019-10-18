@@ -90,7 +90,9 @@ function MyComponent() {
 ### useSelector
 
 ```js
-const result = useSelector(selectorFn, equalityFn?)
+// You can pass in a selector function such as (s) => s.prop
+// Or, you can pass in a string such as 'foo,bar' which will return { foo, bar }
+const result = useSelector(selector, equalityFn?)
 ```
 
 To learn about this hook checkout the amazing [docs](https://react-redux.js.org/api/hooks) over at React Redux.
