@@ -21,7 +21,52 @@ describe('useSelector', () => {
     store = createStore({})
   })
 
-  describe('core subscription behavior', () => {
+  describe('core select by string subscription behaviour ', () => {
+    let tester
+
+    beforeEach(() => {
+      store.setState({
+        foo: 'foo',
+        bar: 'bar'
+      })
+
+      const Comp = () => {
+        const { foo, bar } = useSelector('foo,bar')
+
+        return (
+          <div>
+            <div data-testid='foo'>{foo}</div>
+            <div data-testid='bar'>{bar}</div>
+          </div>
+        )
+      }
+
+      tester = ptl.render(
+        <StoreProvider value={store}>
+          <Comp />
+        </StoreProvider>
+      )
+    })
+
+    it('selects the state on intial render', () => {
+      expect(tester.getByTestId('foo')).toHaveTextContent('foo')
+      expect(tester.getByTestId('bar')).toHaveTextContent('bar')
+    })
+
+    it('selects the state and renders the component when the store updates', () => {
+      ptl.act(() => {
+        store.setState({
+          foo: 'fooB',
+          bar: 'barB'
+        })
+      })
+
+      expect(tester.getByTestId('foo')).toHaveTextContent('fooB')
+      expect(tester.getByTestId('bar')).toHaveTextContent('barB')
+    })
+  })
+
+  describe('core selector function subscription behavior', () => {
     let tester
 
     beforeEach(() => {

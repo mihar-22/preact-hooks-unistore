@@ -9,12 +9,26 @@ const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffec
 
 const refEquality = (a, b) => a === b
 
+// select('foo,bar') creates a function of the form: ({ foo, bar }) => ({ foo, bar })
+const select = (properties) => {
+  properties = properties.split(/\s*,\s*/)
+
+  return state => {
+    const selected = {}
+    for (let i = 0; i < properties.length; i++) {
+      selected[properties[i]] = state[properties[i]]
+    }
+    return selected
+  }
+}
+
 export const StoreContext = createContext(null)
 
 export const StoreProvider = StoreContext.Provider
 
 export const useStore = () => useContext(StoreContext)
 
+// selector can be a string 'foo,bar' or a function (state => state.foo)
 export const useSelector = (selector, equalityFn = refEquality) => {
   const store = useStore()
   const [, forceRerender] = useReducer(s => s + 1, 0)
@@ -22,12 +36,14 @@ export const useSelector = (selector, equalityFn = refEquality) => {
   const selectorRef = useRef(null)
   const selectedStateRef = useRef(null)
   const onChangeErrorRef = useRef(null)
+  const isSelectorStr = (typeof selector === 'string')
 
   let selectedState
 
   try {
     if (selectorRef.current !== selector || onChangeErrorRef.current) {
-      selectedState = selector(store.getState())
+      const state = store.getState()
+      selectedState = isSelectorStr ? select(selector)(state) : selector(state)
     } else {
       selectedState = selectedStateRef.current
     }
@@ -43,7 +59,7 @@ export const useSelector = (selector, equalityFn = refEquality) => {
   }
 
   useIsomorphicLayoutEffect(() => {
-    selectorRef.current = selector
+    selectorRef.current = isSelectorStr ? select(selector) : selector
     selectedStateRef.current = selectedState
     onChangeErrorRef.current = null
   })
