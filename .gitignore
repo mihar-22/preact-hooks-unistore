@@ -6,6 +6,7 @@ dist
 .DS_Store
 .eslintcache
 .idea
+.vscode
 
 yarn-error.log
 package-lock.json

@@ -70,6 +70,10 @@
     "standard-version": "^7.0.0",
     "unistore": "^3.4.1"
   },
+  "standard": {
+    "parser": "babel-eslint",
+    "env": ["jest"]
+  },
   "publishConfig": {
     "access": "public"
   }
