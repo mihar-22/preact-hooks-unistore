@@ -22,6 +22,11 @@ declare namespace unistoreHooks {
 
   const StoreProvider: StoreProvider<any>
 
+  function useSelector(
+    selector: string,
+    equalityFn?: (left: any, right: any) => boolean
+  ): any;
+
   function useSelector<TState, TSelected>(
     selector: (state: TState) => TSelected,
     equalityFn?: (left: TSelected, right: TSelected) => boolean
