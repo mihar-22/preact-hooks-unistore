@@ -5,7 +5,10 @@ export default (objA, objB) => {
   if (keysA.length !== keysB.length) return false
 
   for (let i = 0; i < keysA.length; i++) {
-    if (!objB[keysA[i]] || (objA[keysA[i]] !== objB[keysA[i]])) return false
+    if (
+      !Object.prototype.hasOwnProperty.call(objB, keysA[i]) ||
+      (objA[keysA[i]] !== objB[keysA[i]])
+    ) return false
   }
 
   return true
